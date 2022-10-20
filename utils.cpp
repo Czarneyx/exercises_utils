@@ -6,7 +6,6 @@ int Random(int _min, int _max) {
 
 }
 
-
 void Swap(int &_value1, int &_value2) {
 
     int _tmp = _value1;
@@ -164,28 +163,6 @@ bool IsPalindrome(char *_array, int _length) {
 
 }
 
-void FillRandomlyMatrix10(int _matrix[][10], int _min, int _max, int _length) {
-
-    for(int y = 0; y < _length; y++) 
-        for(int x = 0; x < _length; x++)
-            _matrix[x][y] = Random(_min, _max);
-
-}
-
-void PrintMatrix10(int _matrix[][10], int _length) {
-
-    for(int y = 0; y < _length; y++) 
-        PrintArray(_matrix[y], _length);
-
-}
-
-void GetDiagonalMatrix10(int _matrix[][10], int *_array, int _length) {
-
-    for(int i = 0; i < _length; i++) 
-        _array[i] = _matrix[i][i];
-
-}
-
 int Pow(int _base, int _exponent) {
 
     if(_exponent == 1)
@@ -213,5 +190,29 @@ int Fibonacci(int _number) {
         return 1;
 
     return Fibonacci(_number-1)+Fibonacci(_number-2);
+
+}
+
+const int ROWS = 2;
+const int COLS = 4;
+
+// 0 1 2 3
+// 4 5 6 7
+
+void PrintMatrix(int _matrix[COLS][ROWS]) {
+
+    for(int y = 0; y < ROWS; y++)
+        for(int x = 0; x < COLS; x++)
+            std::cout << _matrix[x][y] << "\t" << ((x == COLS-1) ? ("\n") : (""));
+
+    std::cout << std::endl;
+
+}
+
+void FillRandomlyMatrix(int _matrix[COLS][ROWS], int _min, int _max) {
+
+    for(int y = 0; y < ROWS; y++)
+        for(int x = 0; x < COLS; x++)
+            _matrix[x][y] = Random(_min, _max);
 
 }
